@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Tiny_JPEG_Decoder.dir/src/tinyjpeg.c.o CMakeFiles/Tiny_JPEG_Decoder.dir/src/loadjpeg.c.o CMakeFiles/Tiny_JPEG_Decoder.dir/src/jidctflt.c.o -o Tiny_JPEG_Decoder 

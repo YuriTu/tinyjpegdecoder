@@ -1,0 +1,3 @@
+/Users/tuqiang/2.github/TinyJPEGDecoder/CMakeFiles/rebuild_cache.dir
+/Users/tuqiang/2.github/TinyJPEGDecoder/CMakeFiles/edit_cache.dir
+/Users/tuqiang/2.github/TinyJPEGDecoder/CMakeFiles/Tiny_JPEG_Decoder.dir

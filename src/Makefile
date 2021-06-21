@@ -12,7 +12,7 @@
 # 0m3.103s (gcc version 4.0.3 20060115)
 # 0m2.902s (gcc version 3.4.5)
 # 0m3.011s (gcc version 3.3.6)
-CFLAGS := -Os -march=pentium-m
+CFLAGS := -Os -march=core2
 
 CFLAGS += -g -Wall -fno-inline-functions-called-once -Wextra 
 CFLAGS += -DDEBUG=1
