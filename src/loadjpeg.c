@@ -283,43 +283,48 @@ static void usage(void)
  * main
  *
  */
-int main(int argc, char *argv[])
+int main(void)
 {
+	printf("start1");
 	int output_format = TINYJPEG_FMT_YUV420P;
 	char *output_filename, *input_filename;
 	clock_t start_time, finish_time;
 	unsigned int duration;
 	int current_argument;
 	int benchmark_mode = 0;
-
-	if (argc < 3)
-		usage();
+	printf("start2");
+	// if (argc < 3)
+	// 	usage();
 
 	current_argument = 1;
-	while (1)
-	{
-		if (strcmp(argv[current_argument], "--benchmark") == 0)
-			benchmark_mode = 1;
-		else
-			break;
-		current_argument++;
-	}
+	// while (1)
+	// {
+	// 	if (strcmp(argv[current_argument], "--benchmark") == 0)
+	// 		benchmark_mode = 1;
+	// 	else
+	// 		break;
+	// 	current_argument++;
+	// }
+	printf("start3");
+	// if (argc < current_argument + 2)
+	// 	usage();
 
-	if (argc < current_argument + 2)
-		usage();
+	// input_filename = argv[current_argument];
+	input_filename = "./test.jpg";
+	// if (strcmp(argv[current_argument + 1], "yuv420p") == 0)
+	// 	output_format = TINYJPEG_FMT_YUV420P;
+	// else if (strcmp(argv[current_argument + 1], "rgb24") == 0)
+	// 	output_format = TINYJPEG_FMT_RGB24;
+	// else if (strcmp(argv[current_argument + 1], "bgr24") == 0)
+	// 	output_format = TINYJPEG_FMT_BGR24;
+	// else if (strcmp(argv[current_argument + 1], "grey") == 0)
+	// 	output_format = TINYJPEG_FMT_GREY;
+	// else
+	// 	exitmessage("Bad format: need to be one of yuv420p, rgb24, bgr24, grey\n");
+	output_format = TINYJPEG_FMT_GREY;
 
-	input_filename = argv[current_argument];
-	if (strcmp(argv[current_argument + 1], "yuv420p") == 0)
-		output_format = TINYJPEG_FMT_YUV420P;
-	else if (strcmp(argv[current_argument + 1], "rgb24") == 0)
-		output_format = TINYJPEG_FMT_RGB24;
-	else if (strcmp(argv[current_argument + 1], "bgr24") == 0)
-		output_format = TINYJPEG_FMT_BGR24;
-	else if (strcmp(argv[current_argument + 1], "grey") == 0)
-		output_format = TINYJPEG_FMT_GREY;
-	else
-		exitmessage("Bad format: need to be one of yuv420p, rgb24, bgr24, grey\n");
-	output_filename = argv[current_argument + 2];
+	// output_filename = argv[current_argument + 2];
+	output_filename = "./output.jpeg";
 
 	start_time = clock();
 
