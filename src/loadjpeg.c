@@ -241,6 +241,7 @@ int convert_one_image(const char *infilename, const char *outfilename, int outpu
 	 * depending of the output mode, only some components will be filled
 	 * RGB: 1 plane, YUV420P: 3 planes, GREY: 1 plane
 	 */
+	// 根据decode的结果拿数据
 	tinyjpeg_get_components(jdec, components);
 
 	/* Save it */
@@ -321,7 +322,7 @@ int main(void)
 	// 	output_format = TINYJPEG_FMT_GREY;
 	// else
 	// 	exitmessage("Bad format: need to be one of yuv420p, rgb24, bgr24, grey\n");
-	output_format = TINYJPEG_FMT_GREY;
+	output_format = TINYJPEG_FMT_YUV420P;
 
 	// output_filename = argv[current_argument + 2];
 	output_filename = "./output.jpeg";

@@ -249,10 +249,10 @@ static const uint8_t val_ac_chrominance[] =
 }  while(0);
 
  /* Signed version !!!! */
-// ËµÃ÷Ò»ÏÂ×îºóÒ»¸öif
-// ÒòÎª´æ´¢µ½ÂëÁ÷ÖĞµÄÊÇ¶ÔÓ¦µÄ·´Âë£¬²»±£Áô·ûºÅÎ»£¬¶ø¸ù¾İ·¶Ê½»ô·òÂü¹æ»®Ò»°ãÊÇ-31~-16:16~31ÕâÖÖÀàĞÍµÄ
-// ËùÒÔÕıÊıµÄ×î¸ßÎ»¿Ï¶¨ÊÇ1£¬¸ºÊı×î¸ßÎ»¿Ï¶¨ÊÇ0£¬ËùÒÔ¸ºÊı¿Ï¶¨ÊÇÂú×ãx < ((1 << nbit) - 1)ÕâÖÖĞÎÊ½µÄ
-// ËùÒÔ¿ÉÒÔµÈ¼ÛÓÚ£¬if (((result >> (nbits_wanted - 1)) & 1) == 0£¬¼´Ö±½ÓÈ¡×î¸ßÎ»ÅĞ¶ÏÊÇ1»¹ÊÇ0
+// Ëµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½if
+// ï¿½ï¿½Îªï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½Ç¶ï¿½Ó¦ï¿½Ä·ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ»®Ò»ï¿½ï¿½ï¿½ï¿½-31~-16:16~31ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ï¶ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ï¶ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½x < ((1 << nbit) - 1)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
+// ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ÔµÈ¼ï¿½ï¿½Ú£ï¿½if (((result >> (nbits_wanted - 1)) & 1) == 0ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î»ï¿½Ğ¶ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½0
 #define get_nbits(reservoir,nbits_in_reservoir,stream,nbits_wanted,result) do { \
    fill_nbits(reservoir,nbits_in_reservoir,stream,(nbits_wanted)); \
    result = ((reservoir)>>(nbits_in_reservoir-(nbits_wanted))); \
@@ -296,8 +296,8 @@ static void resync(struct jdec_private *priv);
  *
  * If the code is not present for any reason, -1 is return.
  */
-// Ö®ËùÒÔÓÃÁ½ÕÅ±íÊÇÒòÎª»ô·òÂüÂëÊÇÇ°×ºÂë£¬µ±²éÕÒ²»´æÔÚµÄÊ±ºòÒª¼ÌĞøÍùºó²éÕÒ£¬ËÙ¶È±È½ÏÂı£¬ÕâÀïÍ¨¹ıÁ½ÕÅ±í
-// ¿ÉÒÔ´ó´ó¼Ó¿ìËÙ¶È£¨¶ÌµÄÂë×Ö£©
+// Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°×ºï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Úµï¿½Ê±ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½Ù¶È±È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½
+// ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ó¿ï¿½ï¿½Ù¶È£ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½Ö£ï¿½
 static int get_next_huffman_code(struct jdec_private *priv, struct huffman_table *huffman_table)
 {
 	int value, hcode;
@@ -319,7 +319,7 @@ static int get_next_huffman_code(struct jdec_private *priv, struct huffman_table
 		look_nbits(priv->reservoir, priv->nbits_in_reservoir, priv->stream, nbits, hcode);
 		slowtable = huffman_table->slowtable[extra_nbits];
 		/* Search if the code is in this array */
-		while (slowtable[0]) {	// ¸Ğ¾õÕâÒ»¿éÓ¦¸ÃÓÃhash tableÀ´ÊµÏÖ£¬·ñÔòÕâÑùµÄ±éÀúÌ«ÂıÁË°É
+		while (slowtable[0]) {	// ï¿½Ğ¾ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½hash tableï¿½ï¿½Êµï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½Ë°ï¿½
 			if (slowtable[0] == hcode) {
 				skip_nbits(priv->reservoir, priv->nbits_in_reservoir, priv->stream, nbits);
 				return slowtable[1];
@@ -355,7 +355,7 @@ static void process_Huffman_data_unit(struct jdec_private *priv, int component)
 	huff_code = get_next_huffman_code(priv, c->DC_table);
 	//trace("+ %x\n", huff_code);
 	if (huff_code) {
-		// ÕâÀïµÄµ¹ÊıµÚ¶ş¸ö²ÎÊıÊ¹ÓÃµ½ÁË¿ìËÙlook table£¬ËùÒÔ²»ÊÇsize
+		// ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½Ë¿ï¿½ï¿½ï¿½look tableï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½size
 		get_nbits(priv->reservoir, priv->nbits_in_reservoir, priv->stream, huff_code, DCT[0]);
 		DCT[0] += c->previous_DC;
 		c->previous_DC = DCT[0];
@@ -458,10 +458,10 @@ static void build_huffman_table(const unsigned char *bits, const unsigned char *
 			 * Good: val can be put in the lookup table, so fill all value of this
 			 * column with value val
 			 */
-			// ½«Ç°×ºÂëÈ«²¿Ìî³äµô£¬ÀıÈç7Î»µÄÂë×Ö0101 110£¬Ìî³ä0101 110 00µ½0101 110 11£¬´úÂëÕâ¸ö·¶Î§ÄÚ
-			// ²éÕÒÊ±¶¼ÊÇ´úÂëÂë×Ö0101 110£¬ËùÒÔµ±Ö±½ÓÌáÈ¡9¸öbitÊ±0101 110 XXÊ±£¬ÂíÉÏ¾Í¿ÉÒÔµÃµ½¶ÔÓ¦¸ÃµÄÂë×Ö
-			// ÊÇ0101 110£¬È»ºó¾ÍÖªµÀ³¤¶ÈÊÇ7¸öbit£¬×îºóÁ½¸öXX²»½øĞĞ½âÂë¡£±ÜÃâÁËÔ­À´µÄhuffmanĞèÒª²»¶ÏÒÆÎ»À´²éÕÒ
-			// µÄ±×¶Ë£¬¶ÔÓÚ¶ÌµÄÂë×ÖÒ»´Î²éÕÒµ½Î»¡£Ê¹ÓÃ¿Õ¼ä»»Ê±¼ä£¬²»´íµÄÏë·¨
+			// ï¿½ï¿½Ç°×ºï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0101 110ï¿½ï¿½ï¿½ï¿½ï¿½0101 110 00ï¿½ï¿½0101 110 11ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0101 110ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½Ö±ï¿½ï¿½ï¿½ï¿½È¡9ï¿½ï¿½bitÊ±0101 110 XXÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ï¾Í¿ï¿½ï¿½ÔµÃµï¿½ï¿½ï¿½Ó¦ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½0101 110ï¿½ï¿½È»ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½7ï¿½ï¿½bitï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½XXï¿½ï¿½ï¿½ï¿½ï¿½Ğ½ï¿½ï¿½ë¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½huffmanï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ï¿½Ä±×¶Ë£ï¿½ï¿½ï¿½ï¿½Ú¶Ìµï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î²ï¿½ï¿½Òµï¿½Î»ï¿½ï¿½Ê¹ï¿½Ã¿Õ¼ä»»Ê±ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë·¨
 			int repeat = 1UL << (HUFFMAN_HASH_NBITS - code_size);
 			code <<= HUFFMAN_HASH_NBITS - code_size;
 			while (repeat--)
@@ -1672,7 +1672,7 @@ static int parse_SOS(struct jdec_private *priv, const unsigned char *stream)
 
 static int parse_DHT(struct jdec_private *priv, const unsigned char *stream)
 {
-	unsigned char huff_bits[17];	// Ó¦¸ÃÊÇ·¶Ê½»ô·òÂü±íµÄbit_len·ÖÎª16×é
+	unsigned char huff_bits[17];	// Ó¦ï¿½ï¿½ï¿½Ç·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bit_lenï¿½ï¿½Îª16ï¿½ï¿½
 	int length, index;
 
 	length = be16_to_cpu(stream) - 2;
@@ -1976,6 +1976,7 @@ static const convert_colorspace_fct convert_colorspace_grey[4] = {
  */
 int tinyjpeg_decode(struct jdec_private *priv, int pixfmt)
 {
+	// DUæ˜¯æ•°æ®å•å…ƒ ç­‰ä»·ç†è§£æ˜¯8*8é‚£ä¸ªå—å°±å¯ä»¥ åŒç­‰äºä¸€ä¸ªåƒç´ 
 	unsigned int x, y, xstride_by_mcu, ystride_by_mcu;
 	unsigned int bytes_per_blocklines[3], bytes_per_mcu[3];
 	decode_MCU_fct decode_MCU;
@@ -1991,7 +1992,7 @@ int tinyjpeg_decode(struct jdec_private *priv, int pixfmt)
 	bytes_per_mcu[2] = 0;
 	bytes_per_blocklines[1] = 0;
 	bytes_per_blocklines[2] = 0;
-
+// MCU åœ¨420 æƒ…å†µ ä¸‹å°±æ˜¯ 4ä¸ªåƒç´  è¿™é‡Œæ˜¯ä¸€æ‰¹æŒ‡å‘å‡½æ•°çš„æŒ‡é’ˆï¼Œä¸çŸ¥é“ä¸ºå•¥è¦ç”¨å‡½æ•°æŒ‡é’ˆ
 	decode_mcu_table = decode_mcu_3comp_table;
 	switch (pixfmt) {
 	case TINYJPEG_FMT_YUV420P:
@@ -2028,6 +2029,7 @@ int tinyjpeg_decode(struct jdec_private *priv, int pixfmt)
 
 	case TINYJPEG_FMT_GREY:
 		decode_mcu_table = decode_mcu_1comp_table;
+		// è¿™é‡Œæ˜¯ä¸€ç³»åˆ—çš„ç”¨äºgreyåŒ–çš„å‡½æ•°æŒ‡é’ˆ
 		colorspace_array_conv = convert_colorspace_grey;
 		if (priv->components[0] == NULL)
 			priv->components[0] = (uint8_t *)malloc(priv->width * priv->height);
@@ -2039,9 +2041,10 @@ int tinyjpeg_decode(struct jdec_private *priv, int pixfmt)
 		trace("Bad pixel format\n");
 		return -1;
 	}
-
+// mcuä½¿ç”¨8ä¸ª x8ä¸ª y8ä¸ª
 	xstride_by_mcu = ystride_by_mcu = 8;
 	if ((priv->component_infos[cY].Hfactor | priv->component_infos[cY].Vfactor) == 1) {
+		// æŠŠè§£æmcuçš„å‡½æ•°èµ‹å€¼äº† 
 		decode_MCU = decode_mcu_table[0];
 		convert_to_pixfmt = colorspace_array_conv[0];
 		trace("Use decode 1x1 sampling\n");
@@ -2064,23 +2067,27 @@ int tinyjpeg_decode(struct jdec_private *priv, int pixfmt)
 	}
 
 	resync(priv);
-
+	// ä¸€ä¸ªblockæ˜¯8ä½æ‰€ä»¥
 	/* Don't forget to that block can be either 8 or 16 lines */
 	bytes_per_blocklines[0] *= ystride_by_mcu;
 	bytes_per_blocklines[1] *= ystride_by_mcu;
 	bytes_per_blocklines[2] *= ystride_by_mcu;
-
+// bytes_per_mcu = ã€800ã€‘
 	bytes_per_mcu[0] *= xstride_by_mcu / 8;
 	bytes_per_mcu[1] *= xstride_by_mcu / 8;
 	bytes_per_mcu[2] *= xstride_by_mcu / 8;
 
 	/* Just the decode the image by macroblock (size is 8x8, 8x16, or 16x16) */
+	// æŠŠé«˜æ‹†æˆ8*8 çš„æƒ…å†µï¼Œè¿›è¡Œå¤„ç† å¦‚æœå¤šäº†æˆ–è€…å°‘äº†å¦‚ä½•ï¼Ÿ
 	for (y = 0; y < priv->height / ystride_by_mcu; y++) {
-		//trace("Decoding row %d\n", y);
+		trace("Decoding row %d\n", y);
+		// plane é‡Œé¢æ–¹yuvå¯¹åº”8*8çš„å€¼ bytes_per_blocklines = 8
 		priv->plane[0] = priv->components[0] + (y * bytes_per_blocklines[0]);
 		priv->plane[1] = priv->components[1] + (y * bytes_per_blocklines[1]);
 		priv->plane[2] = priv->components[2] + (y * bytes_per_blocklines[2]);
+		// xæ¯æ¬¡åŠ 8
 		for (x = 0; x < priv->width; x += xstride_by_mcu) {
+			// ä¸çŸ¥é“è¿™å¥æ˜¯å¹²å•¥çš„ï¼Œå¥½åƒæ˜¯å¢åŠ ä¸€ä¸ªç±»å‹
 			decode_MCU(priv);
 			convert_to_pixfmt(priv);
 			priv->plane[0] += bytes_per_mcu[0];
