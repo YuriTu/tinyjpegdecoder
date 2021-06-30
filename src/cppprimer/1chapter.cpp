@@ -1,10 +1,25 @@
 #include <iostream>
-#include "1/Sales_item.h"
+#include "Sales_item.h"
 
 int main() 
 {
+    Sales_item total;
+    if (std::cin >> total) {
+        Sales_item trans;
+        while(std::cin >> trans) {
+            if (total.isbn() == trans.isbn()) {
+                total += trans;
+            } else {
+                std::cout << total << std::endl;
+                total = trans;
+            }
+        }
+        std::cout << total << std::endl;
+    } else {
+        std::cerr << "error" << std::endl;
+        return -1;
+    }
     
-    for (Sales_item item; std::cin >> item; std::cout << item << std::endl);
 	return 0;
     
 }
