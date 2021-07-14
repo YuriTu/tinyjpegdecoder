@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/tuqiang/2.github/TinyJPEGDecoder/src/jidctflt.c
-stdint.h
--
-tinyjpeg-internal.h
-/Users/tuqiang/2.github/TinyJPEGDecoder/src/tinyjpeg-internal.h
-
 /Users/tuqiang/2.github/TinyJPEGDecoder/src/loadjpeg.c
 tinyjpeg.h
 /Users/tuqiang/2.github/TinyJPEGDecoder/src/tinyjpeg.h
